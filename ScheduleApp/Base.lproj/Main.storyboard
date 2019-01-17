@@ -80,6 +80,9 @@
                             </visualEffectView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EUn-ZO-Nl4">
                                 <rect key="frame" x="140" y="228.5" width="95" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="95" id="HYm-Fi-fnv"/>
+                                </constraints>
                                 <state key="normal" title="Upload Image">
                                     <color key="titleColor" red="0.16836005958868427" green="0.16836005958868427" blue="0.16836005958868427" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
@@ -88,7 +91,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t05-nR-jQt">
-                                <rect key="frame" x="146" y="348.5" width="89" height="30"/>
+                                <rect key="frame" x="143" y="348.5" width="89" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="89" id="HHg-d7-sth"/>
+                                </constraints>
                                 <state key="normal" title="Source Code">
                                     <color key="titleColor" red="0.1683600596" green="0.1683600596" blue="0.1683600596" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
@@ -97,17 +103,22 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="79z-wV-ezC">
-                                <rect key="frame" x="167" y="408.5" width="42" height="30"/>
+                                <rect key="frame" x="166.5" y="408.5" width="42" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="42" id="0lN-Io-xXd"/>
+                                </constraints>
                                 <state key="normal" title="About">
                                     <color key="titleColor" red="0.1683600596" green="0.1683600596" blue="0.1683600596" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
                                     <action selector="aboutButtonPressed:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="abL-9l-SSI"/>
-                                    <segue destination="bGs-Ff-aAS" kind="show" id="Sfk-vF-nqy"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZXm-GR-dya">
                                 <rect key="frame" x="159" y="288.5" width="57" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="57" id="NLL-s7-4hL"/>
+                                </constraints>
                                 <state key="normal" title="Random">
                                     <color key="titleColor" red="0.1683600596" green="0.1683600596" blue="0.1683600596" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
@@ -115,37 +126,53 @@
                                     <action selector="randomPressed:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="TIV-HG-ux5"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="qfh-ax-S6a">
+                                <rect key="frame" x="95" y="207.5" width="185" height="252"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="252" id="85C-FC-pcI"/>
+                                    <constraint firstAttribute="width" constant="185" id="gfN-81-0xV"/>
+                                </constraints>
+                                <string key="text">                                                                        Fast Schedule was created for students working in high-pace environments.   Stay ahead of the game with cutting edge functionality.
+
+Developed at Villanova University.
+
+Donations: paypal.me/rolfspaypal</string>
+                                <color key="textColor" red="0.1683600596" green="0.1683600596" blue="0.1683600596" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="EUn-ZO-Nl4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="140" id="2ld-fN-eNJ"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="79z-wV-ezC" secondAttribute="trailing" constant="166" id="49Q-Zv-zKJ"/>
+                            <constraint firstItem="qfh-ax-S6a" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0Of-e6-AIA"/>
                             <constraint firstItem="EUn-ZO-Nl4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" priority="200" constant="208.5" id="AnU-Cz-HPg"/>
-                            <constraint firstItem="79z-wV-ezC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="167" id="Cgi-oB-uk0"/>
+                            <constraint firstItem="qfh-ax-S6a" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Dwv-HV-8ys"/>
                             <constraint firstItem="ZXm-GR-dya" firstAttribute="top" secondItem="EUn-ZO-Nl4" secondAttribute="bottom" constant="30" id="HpG-5L-Kxw"/>
+                            <constraint firstItem="79z-wV-ezC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KNP-Wl-wCr"/>
                             <constraint firstItem="olY-k7-pby" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Mcf-QH-YZi"/>
                             <constraint firstItem="A1k-ue-T2E" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="P8x-Ub-Y8r"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="79z-wV-ezC" secondAttribute="bottom" priority="200" constant="228.5" id="Rn9-bd-SM7"/>
                             <constraint firstItem="A1k-ue-T2E" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Xk2-Ot-wpU"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="t05-nR-jQt" secondAttribute="trailing" constant="140" id="ZOf-0s-8Ai"/>
                             <constraint firstItem="olY-k7-pby" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="a1b-g9-jzl"/>
                             <constraint firstItem="ZXm-GR-dya" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bSt-Rf-3Lf"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EUn-ZO-Nl4" secondAttribute="trailing" constant="140" id="bVP-yC-r5y"/>
+                            <constraint firstItem="EUn-ZO-Nl4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bch-pp-6xk"/>
                             <constraint firstItem="t05-nR-jQt" firstAttribute="top" secondItem="ZXm-GR-dya" secondAttribute="bottom" constant="30" id="eYe-Ie-T5g"/>
                             <constraint firstItem="zqH-pd-umz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="f0j-4R-7UC"/>
                             <constraint firstItem="A1k-ue-T2E" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ftn-cv-GyW"/>
                             <constraint firstItem="FJl-qr-SCV" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="jQ7-Ka-e3A"/>
                             <constraint firstItem="zqH-pd-umz" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="mEO-yl-dGo"/>
+                            <constraint firstItem="t05-nR-jQt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mTF-O3-Zlu"/>
                             <constraint firstItem="FJl-qr-SCV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="oFa-lq-XLZ"/>
                             <constraint firstItem="A1k-ue-T2E" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="pFn-j2-toe"/>
                             <constraint firstItem="t05-nR-jQt" firstAttribute="top" secondItem="FJl-qr-SCV" secondAttribute="bottom" id="w8s-g2-kia"/>
-                            <constraint firstItem="t05-nR-jQt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="146" id="xul-O1-bhK"/>
                             <constraint firstItem="79z-wV-ezC" firstAttribute="top" secondItem="t05-nR-jQt" secondAttribute="bottom" constant="30" id="yrA-0W-TnT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="aboutButton" destination="79z-wV-ezC" id="Pzj-Zm-ZFb"/>
+                        <outlet property="aboutTextView" destination="qfh-ax-S6a" id="Hhi-F5-5YE"/>
                         <outlet property="blurView" destination="olY-k7-pby" id="dFK-Te-oJ0"/>
                         <outlet property="randomButton" destination="ZXm-GR-dya" id="SEf-oU-If3"/>
                         <outlet property="scheduleImageView" destination="A1k-ue-T2E" id="Ekf-Mc-o1j"/>
@@ -158,38 +185,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="140" y="133.5832083958021"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="w5b-Rl-n1X">
-            <objects>
-                <viewController id="bGs-Ff-aAS" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="mXv-gY-8Ya">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4A5-EV-rPK">
-                                <rect key="frame" x="16" y="20" width="343" height="627"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LcH-WQ-xWl">
-                                <rect key="frame" x="16" y="20" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Return"/>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="PV7-P0-1fS"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="Hsk-dh-fhF"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eHJ-cN-OLJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="861.60000000000002" y="127.28635682158921"/>
         </scene>
     </scenes>
 </document>

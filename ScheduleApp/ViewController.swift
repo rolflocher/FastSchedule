@@ -14,6 +14,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBOutlet var randomButton: UIButton!
     
+    @IBOutlet var aboutTextView: UITextView!
+    
     
     @IBOutlet var blurView: UIVisualEffectView!
     
@@ -32,14 +34,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet var sourceButton: UIButton!
     
     @IBAction func sourceButtonPressed(_ sender: Any) {
-        guard let url = URL(string: "https://stackoverflow.com") else { return }
+        guard let url = URL(string: "https://github.com/rolflocher/FastSchedule") else { return }
         UIApplication.shared.open(url)
     }
     
     @IBOutlet var aboutButton: UIButton!
     
     @IBAction func aboutButtonPressed(_ sender: Any) {
+        self.aboutTextView.isHidden=false
         
+        self.secondUploadButton.isHidden = true
+        self.sourceButton.isHidden = true
+        self.aboutButton.isHidden = true
+        self.randomButton.isHidden=true
     }
     
     
@@ -47,6 +54,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBAction func randomPressed(_ sender: Any) {
         
+        self.getRandomImage()
+    }
+    
+    func getRandomImage () {
         let session = URLSession(configuration: .default)
         
         let imageURL = URL(string: "https://picsum.photos/375/667/?random")!
@@ -101,13 +112,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.secondUploadButton.isHidden = true
-        self.sourceButton.isHidden = true
-        self.aboutButton.isHidden = true
-        self.randomButton.isHidden = true
-        //self.heightText.keyboardType = UIKeyboardType.numberPad
-        // Do any additional setup after loading the view, typically from a nib.
-        self.secondBlurView.isHidden=true
+//        self.secondUploadButton.isHidden = true
+//        self.sourceButton.isHidden = true
+//        self.aboutButton.isHidden = true
+//        self.randomButton.isHidden = true
+//        //self.heightText.keyboardType = UIKeyboardType.numberPad
+//        // Do any additional setup after loading the view, typically from a nib.
+//        self.secondBlurView.isHidden=true
         self.secondBlurView.layer.cornerRadius = 10.0
         self.secondBlurView.clipsToBounds = true
         
@@ -115,20 +126,32 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.blurView.clipsToBounds = true
         self.blurView.isHidden=true
         self.uploadButton.isHidden=true
+        
+        self.aboutButton.isHidden=false
+        
+        self.aboutTextView.isHidden=true
+        self.aboutTextView.isEditable=false
+        
+        let tapPressRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapPressed))
+        self.aboutTextView.addGestureRecognizer(tapPressRecognizer)
+        self.aboutTextView.isUserInteractionEnabled = true
+        
+        self.secondBlurView.isHidden=false
+        self.secondUploadButton.isHidden = false
+        self.sourceButton.isHidden = false
+        self.aboutButton.isHidden = false
+        self.randomButton.isHidden = false
+        
         if let userDefaults = UserDefaults(suiteName: "group.rlocher.schedule") {
             
             if userDefaults.data(forKey: "schedule1") != nil {
                 self.scheduleImageView.image = UIImage(data:userDefaults.data(forKey: "schedule1")!)
-                self.secondBlurView.isHidden=false
-                self.secondUploadButton.isHidden = false
-                self.sourceButton.isHidden = false
-                self.aboutButton.isHidden = false
-                self.randomButton.isHidden=true
-                self.randomButton.isHidden = false
+                
             }
             else {
-                self.blurView.isHidden=false
-                self.uploadButton.isHidden=false
+//                self.blurView.isHidden=false
+//                self.uploadButton.isHidden=false
+                self.getRandomImage()
             }
         }
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPressed))
@@ -164,6 +187,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     
+    @objc func tapPressed(sender: UITapGestureRecognizer) {
+        print("ok")
+        self.aboutTextView.isHidden=true
+        self.secondUploadButton.isHidden = false
+        self.sourceButton.isHidden = false
+        self.aboutButton.isHidden = false
+        self.randomButton.isHidden=false
+    }
     
     let imagePicker = UIImagePickerController()
     
@@ -185,6 +216,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             self.secondUploadButton.isHidden = false
             self.sourceButton.isHidden = false
             self.aboutButton.isHidden = false
+            self.randomButton.isHidden=false
             
             self.blurView.isHidden=true
             self.uploadButton.isHidden=true
