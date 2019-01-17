@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Today View Controller-->
+        <scene sceneID="cwh-vc-ff4">
+            <objects>
+                <viewController autoresizesArchivedViewToFullSize="NO" id="M4Y-Lb-cyx" customClass="TodayViewController" customModule="ScheduleAppExt" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" simulatedAppContext="notificationCenter" id="S3S-Oj-5AN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uTI-by-SeQ">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="28n-0y-zBo">
+                                <rect key="frame" x="127.5" y="318.5" width="120" height="30"/>
+                                <state key="normal" title="Insert New Image"/>
+                                <connections>
+                                    <action selector="uploadButtonPressed:" destination="M4Y-Lb-cyx" eventType="primaryActionTriggered" id="gwk-bK-sk1"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Expand View to Continue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yHj-yR-kfq">
+                                <rect key="frame" x="89" y="321" width="196" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="28n-0y-zBo" firstAttribute="centerY" secondItem="S3S-Oj-5AN" secondAttribute="centerY" id="N7n-P1-6Xx"/>
+                            <constraint firstItem="uTI-by-SeQ" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" id="Qa6-N7-Gz0"/>
+                            <constraint firstItem="uTI-by-SeQ" firstAttribute="trailing" secondItem="ssy-KU-ocm" secondAttribute="trailing" id="dfr-MZ-FBH"/>
+                            <constraint firstItem="28n-0y-zBo" firstAttribute="centerX" secondItem="S3S-Oj-5AN" secondAttribute="centerX" id="iA7-9z-TWu"/>
+                            <constraint firstItem="uTI-by-SeQ" firstAttribute="top" secondItem="ssy-KU-ocm" secondAttribute="top" id="rhO-bB-W2L"/>
+                            <constraint firstItem="uTI-by-SeQ" firstAttribute="bottom" secondItem="ssy-KU-ocm" secondAttribute="bottom" id="z4h-sG-sI2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ssy-KU-ocm"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="helpText" destination="yHj-yR-kfq" id="14c-2X-Wjn"/>
+                        <outlet property="uploadButton" destination="28n-0y-zBo" id="BA9-zR-VLR"/>
+                        <outlet property="widgetImageView" destination="uTI-by-SeQ" id="ngP-L7-Zb8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
+        </scene>
+    </scenes>
+</document>

@@ -14,6 +14,10 @@
 		4CA0AE1A21EEDFBA0028429D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CA0AE1821EEDFBA0028429D /* LaunchScreen.storyboard */; };
 		4CA0AE2521EEDFBA0028429D /* ScheduleAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA0AE2421EEDFBA0028429D /* ScheduleAppTests.swift */; };
 		4CA0AE3021EEDFBA0028429D /* ScheduleAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA0AE2F21EEDFBA0028429D /* ScheduleAppUITests.swift */; };
+		4CA0AE4421EEE0250028429D /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CA0AE4321EEE0250028429D /* NotificationCenter.framework */; };
+		4CA0AE4721EEE0250028429D /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA0AE4621EEE0250028429D /* TodayViewController.swift */; };
+		4CA0AE4A21EEE0250028429D /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CA0AE4821EEE0250028429D /* MainInterface.storyboard */; };
+		4CA0AE4E21EEE0250028429D /* ScheduleAppExt.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4CA0AE4121EEE0250028429D /* ScheduleAppExt.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,7 +35,28 @@
 			remoteGlobalIDString = 4CA0AE0B21EEDFB90028429D;
 			remoteInfo = ScheduleApp;
 		};
+		4CA0AE4C21EEE0250028429D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4CA0AE0421EEDFB90028429D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4CA0AE4021EEE0250028429D;
+			remoteInfo = ScheduleAppExt;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4CA0AE5221EEE0250028429D /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				4CA0AE4E21EEE0250028429D /* ScheduleAppExt.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		4CA0AE0C21EEDFB90028429D /* ScheduleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScheduleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +72,13 @@
 		4CA0AE2B21EEDFBA0028429D /* ScheduleAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScheduleAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CA0AE2F21EEDFBA0028429D /* ScheduleAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleAppUITests.swift; sourceTree = "<group>"; };
 		4CA0AE3121EEDFBA0028429D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4CA0AE4121EEE0250028429D /* ScheduleAppExt.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ScheduleAppExt.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CA0AE4321EEE0250028429D /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		4CA0AE4621EEE0250028429D /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		4CA0AE4921EEE0250028429D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		4CA0AE4B21EEE0250028429D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4CA0AE5321EEE3510028429D /* ScheduleAppExt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ScheduleAppExt.entitlements; sourceTree = "<group>"; };
+		4CA0AE5421EEF9770028429D /* ScheduleApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ScheduleApp.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +103,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4CA0AE3E21EEE0250028429D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CA0AE4421EEE0250028429D /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -80,6 +120,8 @@
 				4CA0AE0E21EEDFB90028429D /* ScheduleApp */,
 				4CA0AE2321EEDFBA0028429D /* ScheduleAppTests */,
 				4CA0AE2E21EEDFBA0028429D /* ScheduleAppUITests */,
+				4CA0AE4521EEE0250028429D /* ScheduleAppExt */,
+				4CA0AE4221EEE0250028429D /* Frameworks */,
 				4CA0AE0D21EEDFB90028429D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,6 +132,7 @@
 				4CA0AE0C21EEDFB90028429D /* ScheduleApp.app */,
 				4CA0AE2021EEDFBA0028429D /* ScheduleAppTests.xctest */,
 				4CA0AE2B21EEDFBA0028429D /* ScheduleAppUITests.xctest */,
+				4CA0AE4121EEE0250028429D /* ScheduleAppExt.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -97,6 +140,7 @@
 		4CA0AE0E21EEDFB90028429D /* ScheduleApp */ = {
 			isa = PBXGroup;
 			children = (
+				4CA0AE5421EEF9770028429D /* ScheduleApp.entitlements */,
 				4CA0AE0F21EEDFB90028429D /* AppDelegate.swift */,
 				4CA0AE1121EEDFB90028429D /* ViewController.swift */,
 				4CA0AE1321EEDFB90028429D /* Main.storyboard */,
@@ -125,6 +169,25 @@
 			path = ScheduleAppUITests;
 			sourceTree = "<group>";
 		};
+		4CA0AE4221EEE0250028429D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4CA0AE4321EEE0250028429D /* NotificationCenter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4CA0AE4521EEE0250028429D /* ScheduleAppExt */ = {
+			isa = PBXGroup;
+			children = (
+				4CA0AE5321EEE3510028429D /* ScheduleAppExt.entitlements */,
+				4CA0AE4621EEE0250028429D /* TodayViewController.swift */,
+				4CA0AE4821EEE0250028429D /* MainInterface.storyboard */,
+				4CA0AE4B21EEE0250028429D /* Info.plist */,
+			);
+			path = ScheduleAppExt;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,10 +198,12 @@
 				4CA0AE0821EEDFB90028429D /* Sources */,
 				4CA0AE0921EEDFB90028429D /* Frameworks */,
 				4CA0AE0A21EEDFB90028429D /* Resources */,
+				4CA0AE5221EEE0250028429D /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				4CA0AE4D21EEE0250028429D /* PBXTargetDependency */,
 			);
 			name = ScheduleApp;
 			productName = ScheduleApp;
@@ -181,6 +246,23 @@
 			productReference = 4CA0AE2B21EEDFBA0028429D /* ScheduleAppUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		4CA0AE4021EEE0250028429D /* ScheduleAppExt */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4CA0AE4F21EEE0250028429D /* Build configuration list for PBXNativeTarget "ScheduleAppExt" */;
+			buildPhases = (
+				4CA0AE3D21EEE0250028429D /* Sources */,
+				4CA0AE3E21EEE0250028429D /* Frameworks */,
+				4CA0AE3F21EEE0250028429D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ScheduleAppExt;
+			productName = ScheduleAppExt;
+			productReference = 4CA0AE4121EEE0250028429D /* ScheduleAppExt.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -193,6 +275,11 @@
 				TargetAttributes = {
 					4CA0AE0B21EEDFB90028429D = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					4CA0AE1F21EEDFBA0028429D = {
 						CreatedOnToolsVersion = 10.1;
@@ -201,6 +288,14 @@
 					4CA0AE2A21EEDFBA0028429D = {
 						CreatedOnToolsVersion = 10.1;
 						TestTargetID = 4CA0AE0B21EEDFB90028429D;
+					};
+					4CA0AE4021EEE0250028429D = {
+						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -220,6 +315,7 @@
 				4CA0AE0B21EEDFB90028429D /* ScheduleApp */,
 				4CA0AE1F21EEDFBA0028429D /* ScheduleAppTests */,
 				4CA0AE2A21EEDFBA0028429D /* ScheduleAppUITests */,
+				4CA0AE4021EEE0250028429D /* ScheduleAppExt */,
 			);
 		};
 /* End PBXProject section */
@@ -246,6 +342,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4CA0AE3F21EEE0250028429D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CA0AE4A21EEE0250028429D /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +381,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4CA0AE3D21EEE0250028429D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CA0AE4721EEE0250028429D /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -289,6 +401,11 @@
 			isa = PBXTargetDependency;
 			target = 4CA0AE0B21EEDFB90028429D /* ScheduleApp */;
 			targetProxy = 4CA0AE2C21EEDFBA0028429D /* PBXContainerItemProxy */;
+		};
+		4CA0AE4D21EEE0250028429D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4CA0AE4021EEE0250028429D /* ScheduleAppExt */;
+			targetProxy = 4CA0AE4C21EEE0250028429D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -307,6 +424,14 @@
 				4CA0AE1921EEDFBA0028429D /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		4CA0AE4821EEE0250028429D /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4CA0AE4921EEE0250028429D /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -431,8 +556,11 @@
 		4CA0AE3521EEDFBA0028429D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ScheduleApp/ScheduleApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UX7GPB828A;
 				INFOPLIST_FILE = ScheduleApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -448,8 +576,11 @@
 		4CA0AE3621EEDFBA0028429D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ScheduleApp/ScheduleApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UX7GPB828A;
 				INFOPLIST_FILE = ScheduleApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -540,6 +671,46 @@
 			};
 			name = Release;
 		};
+		4CA0AE5021EEE0250028429D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ScheduleAppExt/ScheduleAppExt.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UX7GPB828A;
+				INFOPLIST_FILE = ScheduleAppExt/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = rolflocher.ScheduleApp.ScheduleAppExt;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4CA0AE5121EEE0250028429D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ScheduleAppExt/ScheduleAppExt.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UX7GPB828A;
+				INFOPLIST_FILE = ScheduleAppExt/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = rolflocher.ScheduleApp.ScheduleAppExt;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -575,6 +746,15 @@
 			buildConfigurations = (
 				4CA0AE3B21EEDFBA0028429D /* Debug */,
 				4CA0AE3C21EEDFBA0028429D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4CA0AE4F21EEE0250028429D /* Build configuration list for PBXNativeTarget "ScheduleAppExt" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4CA0AE5021EEE0250028429D /* Debug */,
+				4CA0AE5121EEE0250028429D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
