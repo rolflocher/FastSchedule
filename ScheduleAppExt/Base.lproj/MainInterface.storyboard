@@ -28,13 +28,6 @@
                                     <action selector="uploadButtonPressed:" destination="M4Y-Lb-cyx" eventType="primaryActionTriggered" id="gwk-bK-sk1"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Expand View to Continue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yHj-yR-kfq">
-                                <rect key="frame" x="89" y="321" width="196" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <constraints>
                             <constraint firstItem="28n-0y-zBo" firstAttribute="centerY" secondItem="S3S-Oj-5AN" secondAttribute="centerY" id="N7n-P1-6Xx"/>
@@ -49,7 +42,6 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="helpText" destination="yHj-yR-kfq" id="14c-2X-Wjn"/>
                         <outlet property="uploadButton" destination="28n-0y-zBo" id="BA9-zR-VLR"/>
                         <outlet property="widgetImageView" destination="uTI-by-SeQ" id="ngP-L7-Zb8"/>
                     </connections>

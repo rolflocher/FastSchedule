@@ -101,7 +101,7 @@
                                     <action selector="randomPressed:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="TIV-HG-ux5"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="qfh-ax-S6a">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qfh-ax-S6a">
                                 <rect key="frame" x="95" y="207.5" width="185" height="252"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
