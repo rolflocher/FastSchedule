@@ -15,7 +15,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     @IBOutlet var uploadButton: UIButton!
     
-    
     @IBOutlet var helpText: UILabel!
     
     

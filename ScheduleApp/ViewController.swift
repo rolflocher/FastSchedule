@@ -10,14 +10,13 @@ import UIKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
+    // Interface Builder connections
+    // Button actions and references for hiding, etc.
     @IBOutlet var scheduleImageView: UIImageView!
     
     @IBOutlet var randomButton: UIButton!
     
     @IBOutlet var aboutTextView: UITextView!
-    
-    
-    @IBOutlet var blurView: UIVisualEffectView!
     
     @IBOutlet var secondBlurView: UIVisualEffectView!
     
@@ -42,6 +41,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBAction func aboutButtonPressed(_ sender: Any) {
         self.aboutTextView.isHidden=false
+        self.donateButton.isHidden=false
         
         self.secondUploadButton.isHidden = true
         self.sourceButton.isHidden = true
@@ -49,46 +49,75 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.randomButton.isHidden=true
     }
     
-    
-    
-    
     @IBAction func randomPressed(_ sender: Any) {
-        
         self.getRandomImage()
     }
     
+    @IBOutlet var donateButton: UIButton!
+    
+    @IBAction func donateButtonPressed(_ sender: Any) {
+        guard let url = URL(string: "https://www.paypal.me/rolfspaypal") else { return }
+        UIApplication.shared.open(url)
+    }
+    
+    // Begin application
+    // Hides background elements
+    // Checks for previous data in UserDefaults
+    // Initializes gesture recognizers
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.uploadButton.isHidden=true
+        self.donateButton.isHidden=true
+        self.aboutTextView.isHidden=true
+        self.aboutTextView.isEditable=false
+        
+        self.secondBlurView.isHidden=false
+        self.secondBlurView.layer.cornerRadius = 10.0
+        self.secondBlurView.clipsToBounds = true
+        self.secondUploadButton.isHidden = false
+        self.sourceButton.isHidden = false
+        self.aboutButton.isHidden = false
+        self.randomButton.isHidden = false
+        
+        let tapPressRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapPressed))
+        self.aboutTextView.addGestureRecognizer(tapPressRecognizer)
+        self.aboutTextView.isUserInteractionEnabled = true
+        
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPressed))
+        longPressRecognizer.minimumPressDuration = 0.5
+        self.scheduleImageView.addGestureRecognizer(longPressRecognizer)
+        self.scheduleImageView.isUserInteractionEnabled = true
+        
+        if let userDefaults = UserDefaults(suiteName: "group.rlocher.schedule") {
+            if userDefaults.data(forKey: "schedule1") != nil {
+                self.scheduleImageView.image = UIImage(data:userDefaults.data(forKey: "schedule1")!)
+            }
+            else {
+                self.getRandomImage()
+            }
+        }
+    }
+    
+    // Downloads random image and assigns to UIImageView
+    // Image data is saved in UserDefaults
     func getRandomImage () {
         let session = URLSession(configuration: .default)
-        
         let imageURL = URL(string: "https://picsum.photos/375/667/?random")!
-        
         let downloadPicTask = session.dataTask(with: imageURL) { (data, response, error) in
-            // The download has finished.
             if let e = error {
                 print("Error downloading picture: \(e)")
             } else {
-                // No errors found.
-                // It would be weird if we didn't have a response, so check for that too.
                 if let res = response as? HTTPURLResponse {
                     print("Downloaded picture with response code \(res.statusCode)")
                     if let imageData = data {
-                        // Finally convert that Data into an image and do what you wish with it.
                         let image = UIImage(data: imageData)
                         DispatchQueue.main.async{
-                            
-                            //                            UIView.animate(withDuration: 2, delay: 0.0, options: [], animations: {
-                            //                                self.CloudImageView.image = image
-                            //                            }, completion: nil)
                             UIView.transition(with: self.scheduleImageView,
                                               duration:0.5,
                                               options: .transitionCrossDissolve,
                                               animations: { self.scheduleImageView.image = image },
                                               completion: nil)
-                            
-                            //self.CloudImageView.image = image
-                            
-                            
-                            
                         }
                         let imageData: Data = image!.pngData()! as Data
                         
@@ -96,7 +125,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                             userDefaults.set(imageData, forKey: "schedule1")
                             userDefaults.synchronize()
                         }
-                        // Do something with your image.
                     } else {
                         print("Couldn't get image: Image is nil")
                     }
@@ -105,64 +133,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 }
             }
         }
-        
         downloadPicTask.resume()
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-//        self.secondUploadButton.isHidden = true
-//        self.sourceButton.isHidden = true
-//        self.aboutButton.isHidden = true
-//        self.randomButton.isHidden = true
-//        //self.heightText.keyboardType = UIKeyboardType.numberPad
-//        // Do any additional setup after loading the view, typically from a nib.
-//        self.secondBlurView.isHidden=true
-        self.secondBlurView.layer.cornerRadius = 10.0
-        self.secondBlurView.clipsToBounds = true
-        
-        self.blurView.layer.cornerRadius = 15.0
-        self.blurView.clipsToBounds = true
-        self.blurView.isHidden=true
-        self.uploadButton.isHidden=true
-        
-        self.aboutButton.isHidden=false
-        
-        self.aboutTextView.isHidden=true
-        self.aboutTextView.isEditable=false
-        
-        let tapPressRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapPressed))
-        self.aboutTextView.addGestureRecognizer(tapPressRecognizer)
-        self.aboutTextView.isUserInteractionEnabled = true
-        
-        self.secondBlurView.isHidden=false
-        self.secondUploadButton.isHidden = false
-        self.sourceButton.isHidden = false
-        self.aboutButton.isHidden = false
-        self.randomButton.isHidden = false
-        
-        if let userDefaults = UserDefaults(suiteName: "group.rlocher.schedule") {
-            
-            if userDefaults.data(forKey: "schedule1") != nil {
-                self.scheduleImageView.image = UIImage(data:userDefaults.data(forKey: "schedule1")!)
-                
-            }
-            else {
-//                self.blurView.isHidden=false
-//                self.uploadButton.isHidden=false
-                self.getRandomImage()
-            }
-        }
-        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPressed))
-        longPressRecognizer.minimumPressDuration = 0.5
-        self.scheduleImageView.addGestureRecognizer(longPressRecognizer)
-        self.scheduleImageView.isUserInteractionEnabled = true
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-    
+    // Long press on background image - saves image to Gallery
+    // ImageSaving var and threaded countdown controls number of saves
     var imageSaving = false
-    
     @objc func longPressed(sender: UILongPressGestureRecognizer) {
         if !imageSaving {
             UIImageWriteToSavedPhotosAlbum(self.scheduleImageView.image!, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
@@ -178,26 +154,29 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.imageSaving = false
     }
     
+    // ImagePickerController mandatory handling method after saved image
     @objc func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
         if let error = error {
             // we got back an error!
             print(error)
         } else {
-            print("saved?")
+            print("saved")
         }
     }
     
+    // Tap action, recieved from aboutTextView, "returns" to main screen
     @objc func tapPressed(sender: UITapGestureRecognizer) {
-        print("ok")
         self.aboutTextView.isHidden=true
         self.secondUploadButton.isHidden = false
         self.sourceButton.isHidden = false
         self.aboutButton.isHidden = false
         self.randomButton.isHidden=false
+        self.donateButton.isHidden=true
     }
     
+    // Upload from Gallery method handling selected image
+    // Image data is saved to UserDefaults so it can be accessed by the widget
     let imagePicker = UIImagePickerController()
-    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
     
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
@@ -218,20 +197,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             self.aboutButton.isHidden = false
             self.randomButton.isHidden=false
             
-            self.blurView.isHidden=true
             self.uploadButton.isHidden=true
-            
             
             dismiss(animated: true, completion: nil)
         }
-    }
-
-    @IBAction func uploadPressed(_ sender: Any) {
-        imagePicker.delegate = self
-        imagePicker.sourceType = UIImagePickerController.SourceType.savedPhotosAlbum;
-        self.present(imagePicker, animated: true, completion: nil)
-        
-        
     }
     
 }
